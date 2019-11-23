@@ -1,28 +1,30 @@
 package com.example.thegame;
 
-import static com.example.thegame.MainActivity.Coins;
-import static com.example.thegame.MainActivity.level;
+public class Levels extends GetLevel implements Prov {
+    public int LvLB1, LvLB2,  LvLKoeff1, LvLChance1;
 
-public class Levels{
-    public static int LvLB1 = 1, LvLKoeff1 = 1, LvLChance1 = 1;
-    private void Addlevel(){
-        if (Coins < 100){
-            level = 1;
-            LvLB1 = 1;
-            LvLKoeff1 = 1;
-            LvLChance1 = 1;
+    @Override
+    public int AddLevel1(int level) {
+        ForButton1 FB1 = new ForButton1();
+        LvLB1 = FB1.ForButtons1(level);
+        if (level > 3){
+            LvLB2 = FB1.ForButtons2(level);
         }
-        if (Coins >= 100 && Coins < 200){
-             level = 2;
-             LvLB1 = 2;
-             LvLKoeff1 = 2;
-             LvLChance1 = 2;
-        }else if (Coins >= 200 && Coins < 400){
-            level = 3;
-            LvLB1 = 5;
-            LvLKoeff1 = 2;
-            LvLChance1 = 2;
-        }
+        if (LvLB2 == 0){
+            return LvLB1;
+        }else return LvLB2;
     }
-}
 
+
+    @Override
+    public int AddLevel2(int Coins) {
+
+        return LvLB1;
+    }
+
+    @Override
+    public int AddLevel3(int Coins) {
+        return 0;
+    }
+
+}

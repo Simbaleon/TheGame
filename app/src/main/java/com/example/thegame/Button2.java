@@ -7,7 +7,7 @@ public class Button2 extends Levels implements Buttons {
     }
 
     @Override
-    public int Btn2(int Coin) {
+    public void Btn2(int Coin) {
         return 0;
     }
 
