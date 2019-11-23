@@ -67,25 +67,20 @@ public class MainActivity extends AppCompatActivity {
                         TextView MyLevel = (TextView) findViewById(R.id.Level);
                         String LevelString = Integer.toString(level);
                         TextView MyCoins = (TextView) findViewById(R.id.Coins);
-                        String CoinsString = Integer.toString(L.AddLevel(Coins));
+                        String CoinsString = Integer.toString(Coins);
                         MyCoins.setText(CoinsString);
 
                         if (Coins < b.Task2(level)){
                             level = L.AddLevel(Coins);
                             MyLevel.setText("Текущий уровень: " + LevelString);
                         }else {
-                            level = L.AddLevel(Coins);
                             Coins = Coins + b.Task1(level) - b.Task2(level);
                             level = L.AddLevel(Coins);
                             MyLevel = (TextView) findViewById(R.id.Level);
                             LevelString = Integer.toString(level);
                             MyLevel.setText("Текущий уровень: " + LevelString);
-
-                            Coins = b.Task1(Coins);
-                            level = L.AddLevel(Coins);
-                            LevelString = Integer.toString(level);
-                            MyLevel.setText("Текущий уровень: " + LevelString);
-
+                            MyCoins = (TextView) findViewById(R.id.Coins);
+                            CoinsString = Integer.toString(Coins);
                             MyCoins.setText(CoinsString);
                         }
                     }

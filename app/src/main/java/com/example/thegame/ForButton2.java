@@ -4,7 +4,7 @@ public class ForButton2 extends Pol_Znachenia {
 
     @Override
     public int For1(int Level) {
-        switch (Level) {
+        switch (MainActivity.level) {
             case 2:
                 Znach = 100;
                 break;
@@ -17,14 +17,14 @@ public class ForButton2 extends Pol_Znachenia {
             case 5:
                 Znach = 1000;
                 break;
-                default: Znach = 1;
+                default: Znach = -100;
         }
         return Znach;
     }
 
     @Override
     public int For2(int Level) {
-        switch (Level) {
+        switch (MainActivity.level) {
             case 2:
                 Chance = 50 + (int)(Math.random() * 100);
                 break;
@@ -37,7 +37,7 @@ public class ForButton2 extends Pol_Znachenia {
             case 5:
                 Chance = 800 + (int)(Math.random() * 400);
                 break;
-                default: Chance = 5;
+                default: Chance = -100;
         }
         return Chance;
     }
