@@ -21,7 +21,7 @@ public class Levels extends GetLevel implements Prov {
     @Override
     public int But2(int Level) {
         ForButton2 FB2 = new ForButton2();
-        PlCoins = FB2.For2(MainActivity.level);
+        PlCoins = FB2.For2(Level);
         return PlCoins;
     }
 

@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                             level = L.AddLevel(Coins);
                             MyLevel.setText("Текущий уровень: " + LevelString);
                         }else {
-                            Coins = Coins + b.Task1(level) - b.Task2(level);
+                            Coins = Coins - b.Task2(level) + b.Task1(Coins);
                             level = L.AddLevel(Coins);
                             MyLevel = (TextView) findViewById(R.id.Level);
                             LevelString = Integer.toString(level);

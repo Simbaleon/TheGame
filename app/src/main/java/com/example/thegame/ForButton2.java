@@ -4,7 +4,7 @@ public class ForButton2 extends Pol_Znachenia {
 
     @Override
     public int For1(int Level) {
-        switch (MainActivity.level) {
+        switch (Level) {
             case 2:
                 Znach = 100;
                 break;
@@ -24,6 +24,7 @@ public class ForButton2 extends Pol_Znachenia {
 
     @Override
     public int For2(int Level) {
+        Chance = 0;
         switch (MainActivity.level) {
             case 2:
                 Chance = 50 + (int)(Math.random() * 100);

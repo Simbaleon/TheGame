@@ -7,16 +7,16 @@ public class Button2 extends MainActivity implements Buttons{
 
     @Override
     public int Task1(int Money) {
-        MainActivity.level = lvl.AddLevel(MainActivity.Coins);
-        MainActivity.Coins = lvl.But2(MainActivity.level);
-        return MainActivity.Coins;
+        level = lvl.AddLevel(Money);
+        Coins = lvl.But2(level);
+        return Coins;
     }
 
     @Override
     public int Task2(int Level) {
         HelpB2 Help = new  HelpB2();
-        MainActivity.level = lvl.AddLevel(MainActivity.Coins);
-        Coast = Help.But2(MainActivity.level);
+        level = lvl.AddLevel(Coins);
+        Coast = Help.But2(level);
         return Coast;
     }
 
