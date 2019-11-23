@@ -4,21 +4,22 @@ public class Button1 extends MainActivity implements Buttons {
 
 
     private Levels lvl = new Levels();
-    private int BCoins = MainActivity.Coins;
+
     @Override
-    public int Btn1(int Coins) {
-        level = lvl.AddLevel(BCoins);
-        MainActivity.Coins += lvl.AddLevel1(level);
-        return MainActivity.Coins;
+    public int Task1(int Coins) {
+        level = lvl.AddLevel(Coins);
+        Coins += lvl.But1(level);
+        return Coins;
     }
 
     @Override
-    public void Btn2() {
-
+    public int Task2(int level) {
+        return 0;
     }
 
+
     @Override
-    public int Btn3(int level) {
+    public int Task3(int level) {
         return 0;
     }
 

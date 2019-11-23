@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         MyCoins.setText(CoinsString);
         TextView MyLevel = (TextView) findViewById(R.id.Level);
         String LevelString = Integer.toString(level);
-        MyLevel.setText(LevelString);
+        MyLevel.setText("Текущий уровень: " +LevelString);
         addListenerOnButton();
     }
 
@@ -44,14 +44,14 @@ public class MainActivity extends AppCompatActivity {
                         level = L.AddLevel(Coins);
                         TextView MyLevel = (TextView) findViewById(R.id.Level);
                         String LevelString = Integer.toString(level);
-                        LevelString = Integer.toString(level);
-                        MyLevel.setText(LevelString);
-                        TextView MyCoins = (TextView) findViewById(R.id.Coins);
+                        MyLevel.setText("Текущий уровень: " + LevelString);
 
-                        Coins = a.Btn1(Coins);
+
+                        Coins = a.Task1(Coins);
                         level = L.AddLevel(Coins);
                         LevelString = Integer.toString(level);
-                        MyLevel.setText(LevelString);
+                        MyLevel.setText("Текущий уровень: " +LevelString);
+                        TextView MyCoins = (TextView) findViewById(R.id.Coins);
                         String CoinsString = Integer.toString(Coins);
                         MyCoins.setText(CoinsString);
 
@@ -61,21 +61,33 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Button1 b = new Button1();
+                        Button2 b = new Button2();
                         Levels L = new Levels();
-
                         level = L.AddLevel(Coins);
                         TextView MyLevel = (TextView) findViewById(R.id.Level);
                         String LevelString = Integer.toString(level);
-                        MyLevel.setText(LevelString);
                         TextView MyCoins = (TextView) findViewById(R.id.Coins);
-
-                        Coins = b.Btn1(Coins);
-                        level = L.AddLevel(Coins);
-                        LevelString = Integer.toString(level);
-                        MyLevel.setText(LevelString);
-                        String CoinsString = Integer.toString(Coins);
+                        String CoinsString = Integer.toString(L.AddLevel(Coins));
                         MyCoins.setText(CoinsString);
+
+                        if (Coins < b.Task2(level)){
+                            level = L.AddLevel(Coins);
+                            MyLevel.setText("Текущий уровень: " + LevelString);
+                        }else {
+                            level = L.AddLevel(Coins);
+                            Coins = Coins + b.Task1(level) - b.Task2(level);
+                            level = L.AddLevel(Coins);
+                            MyLevel = (TextView) findViewById(R.id.Level);
+                            LevelString = Integer.toString(level);
+                            MyLevel.setText("Текущий уровень: " + LevelString);
+
+                            Coins = b.Task1(Coins);
+                            level = L.AddLevel(Coins);
+                            LevelString = Integer.toString(level);
+                            MyLevel.setText("Текущий уровень: " + LevelString);
+
+                            MyCoins.setText(CoinsString);
+                        }
                     }
                 });
         btn3.setOnClickListener(

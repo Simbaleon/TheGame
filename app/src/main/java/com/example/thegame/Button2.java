@@ -1,18 +1,27 @@
 package com.example.thegame;
 
-public class Button2 implements Buttons{
+public class Button2 extends MainActivity implements Buttons{
+
+    private Levels lvl = new Levels();
+    private int Coast;
+
     @Override
-    public int Btn1(int Coins) {
-        return 0;
+    public int Task1(int Money) {
+        level = lvl.AddLevel(Money);
+        Money = lvl.But2(level);
+        return Money;
     }
 
     @Override
-    public void Btn2() {
-
+    public int Task2(int Level) {
+        HelpB2 Help = new  HelpB2();
+        level = lvl.AddLevel(Coins);
+        Coast = Help.But2(level);
+        return Coast;
     }
 
     @Override
-    public int Btn3(int Coins) {
+    public int Task3(int Coins) {
         return 0;
     }
 }

@@ -1,9 +1,9 @@
 package com.example.thegame;
 
-import android.view.View;
 
 public interface Buttons {
-    int Btn1(int Coins);
-    void Btn2();
-    int Btn3(int Coins);
+    int lvl = MainActivity.level;
+    int Task1(int Coins);
+    int Task2(int level);
+    int Task3(int Coins);
 }

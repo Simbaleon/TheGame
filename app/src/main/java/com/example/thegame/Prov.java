@@ -1,7 +1,7 @@
 package com.example.thegame;
 
 public interface Prov {
-    int AddLevel1(int Coins);
-    int AddLevel2(int Coins);
-    int AddLevel3(int Coins);
+    int But1(int Coins);
+    int But2(int Level);
+    int But3(int Coins);
 }

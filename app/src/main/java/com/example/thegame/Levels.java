@@ -1,16 +1,16 @@
 package com.example.thegame;
 
 public class Levels extends GetLevel implements Prov {
-    public int LvLB1, LvLB2,  LvLKoeff1, LvLChance1;
-    public int Clicks;
+    public int LvLB1, LvLB2, LvL2,  LvLKoeff1, LvLChance1;
+    public int Clicks, PlCoins;
 
     @Override
-    public int AddLevel1(int level) {
+    public int But1(int level) {
         Clicks ++;
         ForButton1 FB1 = new ForButton1();
-        LvLB1 = FB1.ForButtons1(level);
+        LvLB1 = FB1.For1(level);
         if (level > 3){
-            LvLB2 = FB1.ForButtons2(level);
+            LvLB2 = FB1.For2(level);
         }
         if (LvLB2 == 0){
             return LvLB1;
@@ -19,13 +19,14 @@ public class Levels extends GetLevel implements Prov {
 
 
     @Override
-    public int AddLevel2(int Coins) {
-        Clicks ++;
-        return LvLB1;
+    public int But2(int Level) {
+        ForButton2 FB2 = new ForButton2();
+        PlCoins = FB2.For2(MainActivity.level);
+        return PlCoins;
     }
 
     @Override
-    public int AddLevel3(int Coins) {
+    public int But3(int Coins) {
         Clicks ++;
         return 0;
     }
