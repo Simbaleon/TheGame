@@ -1,18 +1,18 @@
 package com.example.thegame;
 
-public class Button2 extends Levels implements Buttons {
+public class Button2 implements Buttons{
     @Override
-    public int Btn1(int Coin) {
+    public int Btn1(int Coins) {
         return 0;
     }
 
     @Override
-    public void Btn2(int Coin) {
-        return 0;
+    public void Btn2() {
+
     }
 
     @Override
-    public int Btn3(int Coin) {
+    public int Btn3(int Coins) {
         return 0;
     }
 }

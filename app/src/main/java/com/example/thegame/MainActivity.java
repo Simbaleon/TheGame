@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     public static int Coins;
     public static int level = 1;
+    private int ClickB2, ClickB3;
 
     public Button btn1, btn2, btn3;
 
@@ -37,16 +38,19 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        DoButtons a = new DoButtons();
+                        Button1 a = new Button1();
                         Levels L = new Levels();
 
                         level = L.AddLevel(Coins);
                         TextView MyLevel = (TextView) findViewById(R.id.Level);
+                        String LevelString = Integer.toString(level);
+                        LevelString = Integer.toString(level);
+                        MyLevel.setText(LevelString);
                         TextView MyCoins = (TextView) findViewById(R.id.Coins);
 
                         Coins = a.Btn1(Coins);
                         level = L.AddLevel(Coins);
-                        String LevelString = Integer.toString(level);
+                        LevelString = Integer.toString(level);
                         MyLevel.setText(LevelString);
                         String CoinsString = Integer.toString(Coins);
                         MyCoins.setText(CoinsString);
@@ -57,10 +61,20 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Buttons b = new Button2();
-                        b.Btn2(Coins);
+                        Button1 b = new Button1();
+                        Levels L = new Levels();
+
+                        level = L.AddLevel(Coins);
+                        TextView MyLevel = (TextView) findViewById(R.id.Level);
+                        String LevelString = Integer.toString(level);
+                        MyLevel.setText(LevelString);
                         TextView MyCoins = (TextView) findViewById(R.id.Coins);
-                        String CoinsString = String.valueOf(Coins);
+
+                        Coins = b.Btn1(Coins);
+                        level = L.AddLevel(Coins);
+                        LevelString = Integer.toString(level);
+                        MyLevel.setText(LevelString);
+                        String CoinsString = Integer.toString(Coins);
                         MyCoins.setText(CoinsString);
                     }
                 });
@@ -68,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Buttons c = new Button3();
-                        c.Btn3(Coins);
+                        Button3 c = new Button3();
+
                         TextView MyCoins = (TextView) findViewById(R.id.Coins);
                         String CoinsString = String.valueOf(Coins);
                         MyCoins.setText(CoinsString);

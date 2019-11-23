@@ -1,7 +1,8 @@
 package com.example.thegame;
-import static com.example.thegame.MainActivity.level;
 
-public class DoButtons extends Levels implements Buttons {
+public class Button1 extends MainActivity implements Buttons {
+
+
     private Levels lvl = new Levels();
     private int BCoins = MainActivity.Coins;
     @Override
@@ -12,8 +13,8 @@ public class DoButtons extends Levels implements Buttons {
     }
 
     @Override
-    public int Btn2(int level) {
-        return 0;
+    public void Btn2() {
+
     }
 
     @Override
