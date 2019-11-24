@@ -1,5 +1,7 @@
 package com.example.thegame;
 
+import android.graphics.Color;
+
 public class Button2 extends MainActivity implements Buttons{
 
     private Levels lvl = new Levels();
@@ -21,7 +23,9 @@ public class Button2 extends MainActivity implements Buttons{
     }
 
     @Override
-    public int Task3(int Coins) {
-        return 0;
+    public String Task3(int Level) {
+        btn2.setText("Откроется на уровне 2");
+        btn2.setBackgroundColor(Color.GRAY);
+        return Name;
     }
 }

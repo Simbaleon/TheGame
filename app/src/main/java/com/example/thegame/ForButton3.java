@@ -8,10 +8,10 @@ public class ForButton3 extends Pol_Znachenia {
         Chance = 0;
         Chance = (int) (Math.random() * 1000);
         switch (Level){
-            case 4: Chance += 10;
+            case 5: Chance += 10;
                 break;
-            case 5: Chance += 20;
-                break;
+            case 6: Chance += 20;
+            break;
         }
         if (Chance > 800) {
             return 2 * Coins;
@@ -22,5 +22,9 @@ public class ForButton3 extends Pol_Znachenia {
     @Override
     public int For2(int Level){
         return Znach;
+    }
+    @Override
+    public String For3 (int Level){
+        return Name;
     }
 }

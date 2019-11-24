@@ -42,4 +42,8 @@ public class ForButton2 extends Pol_Znachenia {
         }
         return Chance;
     }
+    @Override
+    public String For3(int Level){
+        return Name;
+    }
 }
