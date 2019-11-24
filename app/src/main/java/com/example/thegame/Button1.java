@@ -8,7 +8,7 @@ public class Button1 extends MainActivity implements Buttons {
 
     @Override
     public int Task1(int Coins) {
-        level = lvl.AddLevel(Coins);
+        level = lvl.CheckLevel(Coins);
         Coins += lvl.But1(level);
         return Coins;
     }

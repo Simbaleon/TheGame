@@ -6,7 +6,7 @@ public class Button3 extends MainActivity implements Buttons{
 
     @Override
     public int Task1(int Money) {
-        level = lvl.AddLevel(Coins);
+        level = lvl.CheckLevel(Coins);
         Money = lvl.But3(level);
         return Money;
     }

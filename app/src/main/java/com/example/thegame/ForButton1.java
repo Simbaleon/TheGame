@@ -47,34 +47,27 @@ public class ForButton1 extends Pol_Znachenia {
 
     public String For3(int level){
         String Name = "";
-        int Chance = 0;
         switch (level){
-            case 1: Chance = (int) (1 + Math.random() * 4);
-                switch(Chance){
-                    case 1: Name = "*поиск по углам*";
-                        break;
-                    case 2: Name = " посмотреть в копилку";
-                        break;
-                    case 3: Name = " *поиск в карманах*";
-                        break;
-                    case 4: Name = " помыть машину";
-                        break;
-                    case 5: Name = "*поиск на улице*";
-                        break;
-                } break;
-            case 2: Chance = (int) (1 + Math.random() * 4);
-                switch(Chance){
-                    case 1: Name = "помочь бабушке";
-                        break;
-                    case 2: Name = "помочь маме";
-                        break;
-                    case 3: Name = "помочь отцу";
-                        break;
-                    case 4: Name = "забрать долг у друга";
-                        break;
-                    case 5: Name = "взять заначку";
-                        break;
-                } break;
+            case 1: Name = "";
+                     break;
+            case 2: Name = "Вы помогате родителям за деньги";
+                    break;
+            case 3: Name = "Вы работаете промоутером";
+                    break;
+            case 4: Name = "";
+                    break;
+            case 5: Name = "";
+                    break;
+            case 6: Name = "";
+                     break;
+            case 7: Name = "";
+                    break;
+            case 8: Name = "";
+                    break;
+            case 9: Name = "";
+                    break;
+            case 10: Name = "";
+                    break;
         }
         return Name;
     }

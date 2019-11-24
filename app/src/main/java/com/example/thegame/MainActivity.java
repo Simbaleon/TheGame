@@ -15,9 +15,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     public static int Coins;
     public static int level = 1;
+    public static boolean NewLevel = true;
     public String Name = "";
     public static int ClickB2, ClickB3, Click;
-    private int ForClickB2, ForClickB3;
     private boolean ClB1, ClB2, ClB3;
     private String ForClickB2String, ForClickB3String, time;
     private int seconds;
@@ -55,18 +55,20 @@ public class MainActivity extends AppCompatActivity {
                         Click ++;
                         Button1 a = new Button1();
                         Levels L = new Levels();
-                        level = L.AddLevel(Coins);
+                        level = L.CheckLevel(Coins);
                         LevelsView(level);
 
-
                         Coins = a.Task1(Coins);
-                        level = L.AddLevel(Coins);
+                        level = L.CheckLevel(Coins);
                         LevelsView(level);
                         CoinsView(Coins);
 
                         if (ClickB2 < 15){ ClickB2 ++;}
                         if (ClickB3 < 30){ ClickB3 ++;}
-                        ForButton1(a.Task3(level));
+                        if (NewLevel){
+                            ForButton1(a.Task3(level));
+                            NewLevel = false;
+                        }
                         ForButton2(level);
                         ForButton3(level);
                         Click ++;
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                         ClB3 = false;
                         Button2 b = new Button2();
                         Levels L = new Levels();
-                        level = L.AddLevel(Coins);
+                        level = L.CheckLevel(Coins);
                         LevelsView(level);
                         CoinsView(Coins);
                         if (level < 2) {
@@ -98,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
 
                             Coins = Coins - b.Task2(level) + b.Task1(Coins);
-                            level = L.AddLevel(Coins);
+                            level = L.CheckLevel(Coins);
                             LevelsView(level);
                             CoinsView(Coins);
                             ForButton2(level);
@@ -118,14 +120,14 @@ public class MainActivity extends AppCompatActivity {
                         ClB3 = true;
                         Button3 c = new Button3();
                         Levels L = new Levels();
-                        level = L.AddLevel(Coins);
+                        level = L.CheckLevel(Coins);
                         LevelsView(level);
 
                         if (level < 5) {
                             ForButton3(level);
                         } else {
                             Coins = c.Task1(Coins);
-                            level = L.AddLevel(Coins);
+                            level = L.CheckLevel(Coins);
                             LevelsView(level);
                             CoinsView(Coins);
                             ForButton2(level);
