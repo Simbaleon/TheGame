@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
 
 public class MainActivity extends AppCompatActivity {
     public static int Coins;
@@ -16,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     public static int ClickB2, ClickB3, Click;
     private int ForClickB2, ForClickB3;
     private boolean ClB1, ClB2, ClB3;
-    private String ForClickB2String, ForClickB3String;
-
+    private String ForClickB2String, ForClickB3String, time;
+    private int seconds;
     public Button btn1, btn2, btn3;
 
     @Override
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btn3.setBackgroundColor(Color.GRAY);
         LevelsView(level);
         CoinsView(Coins);
+        runTimer();
         addListenerOnButton();
     }
 
@@ -198,4 +202,24 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    private void runTimer(){
+        final TextView score = (TextView) findViewById(R.id.time);
+        final Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                int h = seconds / 3600;
+                int min = (seconds % 3600) / 60;
+                int sec = seconds % 60;
+                if (h == 0){
+                    time = String.format("%d:%02d", min, sec);
+                }else time = String.format("%d:%02d:%02d", h, min, sec);
+                score.setText(time);
+                seconds++;
+                handler.postDelayed(this, 1000);
+            }
+        });
+    }
+
+
 }
