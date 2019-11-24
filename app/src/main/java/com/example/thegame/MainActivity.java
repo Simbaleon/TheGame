@@ -2,6 +2,8 @@ package com.example.thegame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,18 +11,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
+import android.content.DialogInterface.OnClickListener;
+
 
 
 
 public class MainActivity extends AppCompatActivity {
+    AlertDialog.Builder D2, D3;
+    Context ForD2, ForD3;
+
+
     public static int Coins;
     public static int level = 1;
-    public static boolean NewLevel = true;
+    private int seconds;
+    public static boolean NewLevel;
+    private boolean NewGame;
     public String Name = "";
     public static int ClickB2, ClickB3, Click;
-    private boolean ClB1, ClB2, ClB3;
+    public boolean ClB1, ClB2, ClB3;
     private String ForClickB2String, ForClickB3String, time;
-    private int seconds;
     public Button btn1, btn2, btn3;
 
     @Override
@@ -41,6 +54,38 @@ public class MainActivity extends AppCompatActivity {
         CoinsView(Coins);
         runTimer();
         addListenerOnButton();
+
+//        ForD2 = MainActivity.this;
+//        String title = "Лотерея";
+//        ForButton2 b1 = new ForButton2();
+//        Levels L = new Levels();
+//        level = L.CheckLevel(Coins);
+//        String message = "Потратать " + b1.For1(L.CheckLevel(Coins)) + " на лотерею?";
+//        String button1String = "Да";
+//        String button2String = "Нет";
+//        D2 = new AlertDialog.Builder(ForD2);
+//        D2.setTitle(title);  // заголовок
+//        D2.setMessage(message); // сообщение
+//        D2.setPositiveButton(button1String, new OnClickListener() {
+//            public void onClick(DialogInterface dialog, int arg1) {
+//                Button2();
+//            }
+//        });
+//        D2.setNegativeButton(button2String, new OnClickListener() {
+//            public void onClick(DialogInterface dialog, int arg1) {
+//
+//            }
+//        });
+//        D2.setCancelable(true);
+//        D2.setOnCancelListener(new OnCancelListener() {
+//            public void onCancel(DialogInterface dialog) {
+//                Toast.makeText(ForD2, "Вы ничего не выбрали",
+//                        Toast.LENGTH_LONG).show();
+//            }
+//        });
+
+
+
     }
 
     public void addListenerOnButton() {
@@ -49,6 +94,19 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+//                        if (NewGame){
+//                            AlertDialog.Builder New = new AlertDialog.Builder(MainActivity.this);
+//                            New.setTitle("     Be rich     ");
+//                            New .setMessage("Цель вашей игры достигунть 10 уровня");
+//                            New.setNegativeButton("Начать игру", new DialogInterface.OnClickListener() {
+//                                                public void onClick(DialogInterface dialog, int id) {
+//                                                    dialog.cancel();
+//                                                }
+//                                            });
+//                            AlertDialog alert = New.create();
+//                            alert.show();
+//                            NewGame = false;
+//                        }
                         ClB1 = true;
                         ClB2 = false;
                         ClB3 = false;
@@ -79,76 +137,117 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Click ++;
-                        ClB1 = false;
-                        ClB2 = true;
-                        ClB3 = false;
-                        Button2 b = new Button2();
-                        Levels L = new Levels();
-                        level = L.CheckLevel(Coins);
-                        LevelsView(level);
-                        CoinsView(Coins);
-                        if (level < 2) {
+                        HelpB2 B1 = new HelpB2();
+                        AlertDialog.Builder a_builder = new AlertDialog.Builder(MainActivity.this);
+                        a_builder.setMessage("Вы хотите потратить " + B1.But2(level) + " на лотерею?" + NewGame)
+                                .setCancelable(false)
+                                .setPositiveButton("Да", new DialogInterface.OnClickListener(){
+                                    @Override
+                                    public void onClick (DialogInterface dialog, int which){
+                                        Click++;
+                                        ClB1 = false;
+                                        ClB2 = true;
+                                        ClB3 = false;
+                                        Button2 b = new Button2();
+                                        Levels L = new Levels();
+                                        level = L.CheckLevel(Coins);
+                                        LevelsView(level);
+                                        CoinsView(Coins);
+                                        if (level < 2) {
 
-                        } else if(ClickB2 < 15){
-                            ForButton2(level);
-                        } else if (Coins < b.Task2(level)) {
-                            Toast.makeText(
-                                    MainActivity.this, "Недостаточно средств",
-                                    Toast.LENGTH_LONG
-                            ).show();
-                        } else {
+                                        } else if (ClickB2 < 15) {
+                                            ForButton2(level);
+                                        } else if (Coins < b.Task2(level)) {
+                                            Toast.makeText(
+                                                    MainActivity.this, "Недостаточно средств (" + b.Task2(level) + ")",
+                                                    Toast.LENGTH_LONG
+                                            ).show();
+                                        } else {
 
-                            Coins = Coins - b.Task2(level) + b.Task1(Coins);
-                            level = L.CheckLevel(Coins);
-                            LevelsView(level);
-                            CoinsView(Coins);
-                            ForButton2(level);
-                            ForButton3(level);
-                            if (ClickB3 < 30){ ClickB3 ++;}
+                                            Coins = Coins - b.Task2(level) + b.Task1(Coins);
+                                            level = L.CheckLevel(Coins);
+                                            LevelsView(level);
+                                            CoinsView(Coins);
+                                            ForButton2(level);
+                                            ForButton3(level);
+                                            if (ClickB3 < 30) {
+                                                ClickB3++;
+                                            }
 
-                        }
+                                        }
+                                    }
+                                })
+                                .setNegativeButton("Нет", new DialogInterface.OnClickListener(){
+                                    @Override
+                                    public void onClick (DialogInterface dialog, int which){
+                                        dialog.cancel();
+                                    }
+                                });
+                        AlertDialog alert = a_builder.create();
+                        alert.setTitle("Лотерея");
+                        alert.show();
                     }
+
                 });
         btn3.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Click++;
-                        ClB1 = false;
-                        ClB2 = false;
-                        ClB3 = true;
-                        Button3 c = new Button3();
-                        Levels L = new Levels();
-                        level = L.CheckLevel(Coins);
-                        LevelsView(level);
+                        HelpB2 B1 = new HelpB2();
+                        AlertDialog.Builder a_builder = new AlertDialog.Builder(MainActivity.this);
+                        a_builder.setMessage("Хотите ли вы рискнуть и удвоить свои ")
+                                .setCancelable(false)
+                                .setPositiveButton("Да", new DialogInterface.OnClickListener(){
+                                    @Override
+                                    public void onClick (DialogInterface dialog, int which){
+                                        Click++;
+                                        ClB1 = false;
+                                        ClB2 = false;
+                                        ClB3 = true;
+                                        Button3 c = new Button3();
+                                        Levels L = new Levels();
+                                        level = L.CheckLevel(Coins);
+                                        LevelsView(level);
 
-                        if (level < 5) {
-                            ForButton3(level);
-                        } else {
-                            Coins = c.Task1(Coins);
-                            level = L.CheckLevel(Coins);
-                            LevelsView(level);
-                            CoinsView(Coins);
-                            ForButton2(level);
-                            ForButton3(level);
+                                        if (level < 5) {
+                                            ForButton3(level);
+                                        } else {
+                                            Coins = c.Task1(Coins);
+                                            level = L.CheckLevel(Coins);
+                                            LevelsView(level);
+                                            CoinsView(Coins);
+                                            ForButton2(level);
+                                            ForButton3(level);
 
-                            if (ClickB2 < 15){ ClickB2 ++;}
-                        }
+                                            if (ClickB2 < 15){ ClickB2 ++;}
+                                        }
+                                    }
+                                })
+                                .setNegativeButton("Нет", new DialogInterface.OnClickListener(){
+                                    @Override
+                                    public void onClick (DialogInterface dialog, int which){
+                                        dialog.cancel();
+                                    }
+                                });
+                        AlertDialog alert = a_builder.create();
+                        alert.setTitle("Всё или ничего");
+                        alert.show();
                     }
                 });
     }
 
+    @SuppressLint("SetTextI18n")
     void LevelsView(int level) {
         TextView MyLevel = (TextView) findViewById(R.id.Level);
         String LevelString = Integer.toString(level);
         MyLevel.setText("Текущий уровень: " + LevelString);
     }
 
+    @SuppressLint("SetTextI18n")
     void CoinsView(int Coins) {
         TextView MyCoins = (TextView) findViewById(R.id.Coins);
         String CoinsString = Integer.toString(Coins);
-        MyCoins.setText(CoinsString);
+        MyCoins.setText("Coins: " + CoinsString);
     }
 
     void ForButton1(String Work) {
@@ -159,6 +258,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("SetTextI18n")
     void ForButton2(int level) {
         if (ClickB2 < 15 && level > 1 && !ClB2){
             ForClickB2String = Integer.toString(15 - ClickB2);
@@ -182,6 +282,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     void ForButton3(int level) {
         if (ClickB3 < 30 && level > 4 && !ClB3){
             ForClickB3String = Integer.toString(30 - ClickB3);
@@ -208,6 +309,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView score = (TextView) findViewById(R.id.time);
         final Handler handler = new Handler();
         handler.post(new Runnable() {
+            @SuppressLint("DefaultLocale")
             @Override
             public void run() {
                 int h = seconds / 3600;
@@ -216,12 +318,16 @@ public class MainActivity extends AppCompatActivity {
                 if (h == 0){
                     time = String.format("%d:%02d", min, sec);
                 }else time = String.format("%d:%02d:%02d", h, min, sec);
+                if(NewGame){
+                    score.setText(0);
+                }else
                 score.setText(time);
                 seconds++;
                 handler.postDelayed(this, 1000);
             }
         });
     }
+
 
 
 }

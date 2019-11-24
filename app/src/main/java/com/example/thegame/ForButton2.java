@@ -1,6 +1,9 @@
 package com.example.thegame;
 
+import static com.example.thegame.MainActivity.level;
+
 public class ForButton2 extends Pol_Znachenia {
+    private int Znach = 0;
 
     @Override
     public int For1(int Level) {
@@ -17,7 +20,9 @@ public class ForButton2 extends Pol_Znachenia {
             case 5:
                 Znach = 1000;
                 break;
-                default: Znach = -100;
+            case 6: Znach = 2500;
+            break;
+
         }
         return Znach;
     }
@@ -25,7 +30,7 @@ public class ForButton2 extends Pol_Znachenia {
     @Override
     public int For2(int Level) {
         Chance = 0;
-        switch (MainActivity.level) {
+        switch (level) {
             case 2:
                 Chance = 50 + (int)(Math.random() * 100);
                 break;

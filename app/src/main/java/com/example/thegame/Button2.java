@@ -1,6 +1,7 @@
 package com.example.thegame;
 
 import android.graphics.Color;
+import android.widget.Toast;
 
 public class Button2 extends MainActivity implements Buttons{
 
@@ -28,4 +29,6 @@ public class Button2 extends MainActivity implements Buttons{
         btn2.setBackgroundColor(Color.GRAY);
         return Name;
     }
+
+
 }
