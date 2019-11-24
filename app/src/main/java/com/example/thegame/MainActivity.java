@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -55,6 +56,18 @@ public class MainActivity extends AppCompatActivity {
         runTimer();
         addListenerOnButton();
 
+        final Dialog dialog = new Dialog(MainActivity.this);
+        dialog.setContentView(R.layout.dialog_layout);
+        Button button = (Button) dialog.findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.setCancelable(false);
+        dialog.setTitle("Проверка связи");
+        dialog.show();
 //        ForD2 = MainActivity.this;
 //        String title = "Лотерея";
 //        ForButton2 b1 = new ForButton2();
