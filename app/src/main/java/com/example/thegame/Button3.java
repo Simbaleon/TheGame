@@ -1,10 +1,14 @@
 package com.example.thegame;
 
-public class Button3 implements Buttons{
+public class Button3 extends MainActivity implements Buttons{
+
+    private Levels lvl = new Levels();
 
     @Override
-    public int Task1(int Coins) {
-        return 0;
+    public int Task1(int Money) {
+        level = lvl.AddLevel(Coins);
+        Money = lvl.But3(level);
+        return Money;
     }
 
     @Override

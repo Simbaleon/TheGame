@@ -90,10 +90,22 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Button3 c = new Button3();
+                        Levels L = new Levels();
+                        level = L.AddLevel(Coins);
+                        TextView MyLevel = (TextView) findViewById(R.id.Level);
+                        String LevelString = Integer.toString(level);
+                        MyLevel.setText("Текущий уровень: " + LevelString);
 
+
+                        Coins = c.Task1(Coins);
+                        level = L.AddLevel(Coins);
+                        LevelString = Integer.toString(level);
+                        MyLevel.setText("Текущий уровень: " +LevelString);
                         TextView MyCoins = (TextView) findViewById(R.id.Coins);
-                        String CoinsString = String.valueOf(Coins);
+                        String CoinsString = Integer.toString(Coins);
                         MyCoins.setText(CoinsString);
+
+
                     }
                 });
     }
