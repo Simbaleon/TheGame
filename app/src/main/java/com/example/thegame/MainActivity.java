@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     public static int Coins;
     public static int level = 1;
     public String Name = "";
-    private int ClickB2, ClickB3, Click;
+    public static int ClickB2, ClickB3, Click;
     private int ForClickB2, ForClickB3;
     private boolean ClB1, ClB2, ClB3;
     private String ForClickB2String, ForClickB3String;

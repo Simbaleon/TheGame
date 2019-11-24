@@ -18,9 +18,11 @@ public class GetLevel extends MainActivity {
         }else if (Coins >= 1000 && Coins < 5000){
             lvl = 5;
         }
-        if (Proverka <= lvl){
+        if (Proverka < lvl){
             Proverka = lvl;
             level = lvl;
+            ClickB2 = 15;
+            ClickB3 = 30;
         }else {
             level = Proverka;
         }
