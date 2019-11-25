@@ -11,10 +11,20 @@ public class ForButton3 extends Pol_Znachenia {
             case 5: Chance += 10;
                 break;
             case 6: Chance += 20;
+             break;
+            case 7: Chance += 30;
             break;
+            case 8: Chance += 40;
+            break;
+            case 9: Chance += 50;
+                    break;
+            case 10: Chance += 70;
+            break;
+             default: Chance ++;
         }
-        if (Chance > 800) {
-            return 2 * Coins;
+        if (Chance > 750) {
+            ForB3Win ++;
+            return 2*Coins;
         }else {
             return 0;
         }

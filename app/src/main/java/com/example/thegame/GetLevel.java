@@ -14,9 +14,9 @@ public class GetLevel extends MainActivity {
             lvl = 2;
         } else if (Coins >= 200 && Coins < 400) {
             lvl = 3;
-        } else if (Coins >= 400 && Coins < 1000) {
+        } else if (Coins >= 400 && Coins < 2000) {
             lvl = 4;
-        } else if (Coins >= 1000 && Coins < 5000) {
+        } else if (Coins >= 2000 && Coins < 5000) {
             lvl = 5;
         }else if (Coins >= 5000){
             lvl = 10;

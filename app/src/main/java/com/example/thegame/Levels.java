@@ -29,7 +29,7 @@ public class Levels extends GetLevel implements Prov {
     public int But3(int level) {
         ForButton3 FB3 = new ForButton3();
         PlCoins = FB3.For1(level);
-        return 0;
+        return PlCoins;
     }
 
 }
