@@ -25,12 +25,11 @@ public class MainActivity extends AppCompatActivity {
     AlertDialog.Builder D2, D3;
     Context ForD2, ForD3;
 
-
     public static int Coins;
     public static int level = 1;
     private int seconds;
     public static boolean NewLevel;
-    private boolean NewGame;
+    private boolean Finish;
     public String Name = "";
     public static int ClickB2, ClickB3, Click;
     public boolean ClB1, ClB2, ClB3;
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         CoinsView(Coins);
         runTimer();
         addListenerOnButton();
-
+        Finish = true;
         final Dialog dialog = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.dialog_layout);
         Button button = (Button) dialog.findViewById(R.id.button);
@@ -128,6 +127,10 @@ public class MainActivity extends AppCompatActivity {
                         Levels L = new Levels();
                         level = L.CheckLevel(Coins);
                         LevelsView(level);
+                        if (level == 10 && Finish) {
+                            Fnsh();
+                        } else
+
 
                         Coins = a.Task1(Coins);
                         level = L.CheckLevel(Coins);
@@ -143,6 +146,9 @@ public class MainActivity extends AppCompatActivity {
                         ForButton2(level);
                         ForButton3(level);
                         Click ++;
+                        if (level == 10 && Finish) {
+                            Fnsh();
+                        }
 
                     }
                 });
@@ -152,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         HelpB2 B1 = new HelpB2();
                         AlertDialog.Builder a_builder = new AlertDialog.Builder(MainActivity.this);
-                        a_builder.setMessage("Вы хотите потратить " + B1.But2(level) + " на лотерею?" + NewGame)
+                        a_builder.setMessage("Вы хотите потратить " + B1.But2(level) + " на лотерею?")
                                 .setCancelable(false)
                                 .setPositiveButton("Да", new DialogInterface.OnClickListener(){
                                     @Override
@@ -166,7 +172,9 @@ public class MainActivity extends AppCompatActivity {
                                         level = L.CheckLevel(Coins);
                                         LevelsView(level);
                                         CoinsView(Coins);
-                                        if (level < 2) {
+                                        if (level == 10 && Finish) {
+                                            Fnsh();
+                                        }else if (level < 2) {
 
                                         } else if (ClickB2 < 15) {
                                             ForButton2(level);
@@ -199,6 +207,9 @@ public class MainActivity extends AppCompatActivity {
                         AlertDialog alert = a_builder.create();
                         alert.setTitle("Лотерея");
                         alert.show();
+                        if (level == 10 && Finish) {
+                            Fnsh();
+                        }
                     }
 
                 });
@@ -222,7 +233,9 @@ public class MainActivity extends AppCompatActivity {
                                         level = L.CheckLevel(Coins);
                                         LevelsView(level);
 
-                                        if (level < 5) {
+                                        if (level == 10 && Finish) {
+                                            Fnsh();
+                                        }else if (level < 5) {
                                             ForButton3(level);
                                         } else {
                                             Coins = c.Task1(Coins);
@@ -245,6 +258,9 @@ public class MainActivity extends AppCompatActivity {
                         AlertDialog alert = a_builder.create();
                         alert.setTitle("Всё или ничего");
                         alert.show();
+                        if (level == 10 && Finish) {
+                            Fnsh();
+                        }
                     }
                 });
     }
@@ -331,16 +347,26 @@ public class MainActivity extends AppCompatActivity {
                 if (h == 0){
                     time = String.format("%d:%02d", min, sec);
                 }else time = String.format("%d:%02d:%02d", h, min, sec);
-                if(NewGame){
-                    score.setText(0);
-                }else
+
                 score.setText(time);
                 seconds++;
                 handler.postDelayed(this, 1000);
             }
         });
     }
-
-
+    private void Fnsh(){
+        AlertDialog.Builder finish = new AlertDialog.Builder(MainActivity.this);
+        finish.setTitle("     Be rich     ");
+        finish .setMessage("Поздравляю!!! Вы достигли цели и внести своё имя в историю." + '\n' +"Ваше время: "  + seconds + '\n' + "Количество кликов: " + Click);
+        finish.setNegativeButton("Продолжить", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alert = finish.create();
+        alert.setCancelable(false);
+        alert.show();
+        Finish = false;
+    }
 
 }

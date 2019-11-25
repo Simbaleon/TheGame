@@ -23,6 +23,9 @@ public class ForButton1 extends Pol_Znachenia {
                 break;
             case 5:
                 Znach = 250;
+                break;
+            case 10: Znach = 999;
+                break;
         }
         return Znach;
     }

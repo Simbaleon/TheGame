@@ -18,6 +18,8 @@ public class GetLevel extends MainActivity {
             lvl = 4;
         } else if (Coins >= 1000 && Coins < 5000) {
             lvl = 5;
+        }else if (Coins >= 5000){
+            lvl = 10;
         }
         if (Proverka < lvl) {
             NewLevel = true;
