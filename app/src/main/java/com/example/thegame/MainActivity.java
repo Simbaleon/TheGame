@@ -55,49 +55,6 @@ public class MainActivity extends AppCompatActivity {
         runTimer();
         addListenerOnButton();
         Finish = true;
-//        final Dialog dialog = new Dialog(MainActivity.this);
-//        dialog.setContentView(R.layout.dialog_layout);
-//        Button button = (Button) dialog.findViewById(R.id.button);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                dialog.dismiss();
-//            }
-//        });
-//        dialog.setCancelable(false);
-//        dialog.setTitle("Проверка связи");
-//        dialog.show();
-//        ForD2 = MainActivity.this;
-//        String title = "Лотерея";
-//        ForButton2 b1 = new ForButton2();
-//        Levels L = new Levels();
-//        level = L.CheckLevel(Coins);
-//        String message = "Потратать " + b1.For1(L.CheckLevel(Coins)) + " на лотерею?";
-//        String button1String = "Да";
-//        String button2String = "Нет";
-//        D2 = new AlertDialog.Builder(ForD2);
-//        D2.setTitle(title);  // заголовок
-//        D2.setMessage(message); // сообщение
-//        D2.setPositiveButton(button1String, new OnClickListener() {
-//            public void onClick(DialogInterface dialog, int arg1) {
-//                Button2();
-//            }
-//        });
-//        D2.setNegativeButton(button2String, new OnClickListener() {
-//            public void onClick(DialogInterface dialog, int arg1) {
-//
-//            }
-//        });
-//        D2.setCancelable(true);
-//        D2.setOnCancelListener(new OnCancelListener() {
-//            public void onCancel(DialogInterface dialog) {
-//                Toast.makeText(ForD2, "Вы ничего не выбрали",
-//                        Toast.LENGTH_LONG).show();
-//            }
-//        });
-
-
-
     }
 
     public void addListenerOnButton() {
@@ -106,19 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        if (NewGame){
-//                            AlertDialog.Builder New = new AlertDialog.Builder(MainActivity.this);
-//                            New.setTitle("     Be rich     ");
-//                            New .setMessage("Цель вашей игры достигунть 10 уровня");
-//                            New.setNegativeButton("Начать игру", new DialogInterface.OnClickListener() {
-//                                                public void onClick(DialogInterface dialog, int id) {
-//                                                    dialog.cancel();
-//                                                }
-//                                            });
-//                            AlertDialog alert = New.create();
-//                            alert.show();
-//                            NewGame = false;
-//                        }
                         ClB1 = true;
                         ClB2 = false;
                         ClB3 = false;
@@ -417,5 +361,4 @@ public class MainActivity extends AppCompatActivity {
         alert.show();
         Finish = false;
     }
-
 }
