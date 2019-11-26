@@ -9,22 +9,22 @@ public class ForButton3 extends Pol_Znachenia {
         Chance = (int) (Math.random() * 1000);
         switch (Level){
             case 5: Chance += 10;
-                break;
+                    break;
             case 6: Chance += 20;
-             break;
+                    break;
             case 7: Chance += 30;
-            break;
+                    break;
             case 8: Chance += 40;
-            break;
+                    break;
             case 9: Chance += 50;
                     break;
             case 10: Chance += 70;
-            break;
+                    break;
              default: Chance ++;
         }
         if (Chance > 750) {
             ForB3Win ++;
-            return 2*Coins;
+            return 2 * Coins;
         }else {
             return 0;
         }

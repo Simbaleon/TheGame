@@ -1,8 +1,8 @@
 package com.example.thegame;
 
 public class HelpB2 extends Levels {
-//  private
-    public  int Money;
+
+    private  int Money;
     @Override
     public int But2(int Level){
         ForButton2 FB2 = new ForButton2();

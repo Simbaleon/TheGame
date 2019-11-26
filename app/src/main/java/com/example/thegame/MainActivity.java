@@ -55,18 +55,18 @@ public class MainActivity extends AppCompatActivity {
         runTimer();
         addListenerOnButton();
         Finish = true;
-        final Dialog dialog = new Dialog(MainActivity.this);
-        dialog.setContentView(R.layout.dialog_layout);
-        Button button = (Button) dialog.findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-        dialog.setCancelable(false);
-        dialog.setTitle("Проверка связи");
-        dialog.show();
+//        final Dialog dialog = new Dialog(MainActivity.this);
+//        dialog.setContentView(R.layout.dialog_layout);
+//        Button button = (Button) dialog.findViewById(R.id.button);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog.dismiss();
+//            }
+//        });
+//        dialog.setCancelable(false);
+//        dialog.setTitle("Проверка связи");
+//        dialog.show();
 //        ForD2 = MainActivity.this;
 //        String title = "Лотерея";
 //        ForButton2 b1 = new ForButton2();
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         HelpB2 B1 = new HelpB2();
                         AlertDialog.Builder a_builder = new AlertDialog.Builder(MainActivity.this);
-                        a_builder.setMessage("Вы хотите потратить " + B1.But2(level) + " на лотерею? " + ForButton1.Znach)
+                        a_builder.setMessage("Вы хотите потратить " + B1.But2(level) + "$ на лотерею? ")
                                 .setCancelable(false)
                                 .setPositiveButton("Да", new DialogInterface.OnClickListener(){
                                     @Override
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                                             ForButton2(level);
                                         } else if (Coins < b.Task2(level)) {
                                             Toast.makeText(
-                                                    MainActivity.this, "Недостаточно средств (" + b.Task2(level) + ")",
+                                                    MainActivity.this, "Недостаточно средств (" + (b.Task2(level) - Coins) + " $)",
                                                     Toast.LENGTH_LONG
                                             ).show();
                                         } else {
@@ -202,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
                                             if (ClickB3 < 30) {
                                                 ClickB3++;
                                             }
+                                            ForButton2Win();
 
                                         }
                                     }
@@ -227,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         HelpB2 B1 = new HelpB2();
                         AlertDialog.Builder a_builder = new AlertDialog.Builder(MainActivity.this);
-                        a_builder.setMessage("Хотите ли вы рискнуть и удвоить свои ")
+                        a_builder.setMessage("Хотите ли вы рискнуть и удвоить свои " + Coins + "$ ?")
                                 .setCancelable(false)
                                 .setPositiveButton("Да", new DialogInterface.OnClickListener(){
                                     @Override
@@ -257,6 +258,7 @@ public class MainActivity extends AppCompatActivity {
 
                                             if (ClickB2 < 15){ ClickB2 ++;}
                                         }
+                                        ForButton3();
                                     }
                                 })
                                 .setNegativeButton("Нет", new DialogInterface.OnClickListener(){
@@ -286,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
     void CoinsView(int Coins) {
         TextView MyCoins = (TextView) findViewById(R.id.Coins);
         String CoinsString = Integer.toString(Coins);
-        MyCoins.setText("Coins: " + CoinsString);
+        MyCoins.setText("У вас " + CoinsString + " $");
     }
 
     void ForButton1A(String Work) {
@@ -299,10 +301,11 @@ public class MainActivity extends AppCompatActivity {
 
     void ForButton1B() {
         Toast.makeText(
-                MainActivity.this, "+ " + ForButton1.Znach ,
+                MainActivity.this, "+ " + ForButton1.Znach + " $" ,
                 Toast.LENGTH_SHORT
         ).show();
     }
+
     @SuppressLint("SetTextI18n")
     void ForButton2(int level) {
         if (ClickB2 < 15 && level > 1 && !ClB2){
@@ -350,6 +353,31 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    void ForButton2Win(){
+        ForButton2 Win = new ForButton2();
+        if (ForButton2.Znach - ForButton2.Chance >= 0){
+            Toast.makeText(
+                    MainActivity.this, "Вы потеряли " + (ForButton2.Znach - ForButton2.Chance) + " $" ,
+                    Toast.LENGTH_SHORT
+            ).show();
+        }else
+            Toast.makeText(
+                    MainActivity.this, "Вы выиграли  " + (ForButton2.Chance - ForButton2.Znach) + " $" ,
+                    Toast.LENGTH_SHORT
+            ).show();
+    }
+
+    void ForButton3(){
+        if(Coins == 0){
+            Toast.makeText(
+                    MainActivity.this, "Вы проиграли :(" ,
+                    Toast.LENGTH_SHORT
+            ).show();
+        }else Toast.makeText(
+                MainActivity.this, "Вы выиграли :)" ,
+                Toast.LENGTH_SHORT
+        ).show();
+    }
     private void runTimer(){
         final TextView score = (TextView) findViewById(R.id.time);
         final Handler handler = new Handler();
@@ -373,12 +401,12 @@ public class MainActivity extends AppCompatActivity {
     private void Fnsh(){
         AlertDialog.Builder finish = new AlertDialog.Builder(MainActivity.this);
         finish.setTitle("     Be rich     ");
-        finish .setMessage("Поздравляю!!! Вы достигли цели. Вы стали владельцем крупной фирмы и теперь " +
-                "вы ни от чего не зависите. Теперь вы можете продолжить игру без достижения уровней."+ '\n' +
+        finish .setMessage("Поздравляю!!! Вы достигли цели. " + '\n' +
                 "Ваше время: "  + time + '\n' +
                 "Всего кликов: " + Click + '\n' +
-                "Сыграно в лотрею: " + ForB2 + '\n' +
-                "Сыграно в \"Всё или ничего\": " + ForB3 + " (Выиграно: " + ForB3Win + ")");
+                "Сыграно в лотерею: " + ForB2 + '\n' +
+                "Сыграно в \"Всё или ничего\": " + ForB3 + " (Выиграно: " + ForB3Win + ")" + '\n' +
+                "Теперь вы можете продолжить игру без достижения уровней.");
         finish.setNegativeButton("Продолжить", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();

@@ -2,7 +2,7 @@ package com.example.thegame;
 
  public abstract class Pol_Znachenia extends MainActivity {
     public int Znach;
-    public int Chance;
+    public static int Chance;
     String Name;
 
     public int For1(int Level){ return Znach;}

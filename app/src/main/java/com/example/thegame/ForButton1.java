@@ -65,27 +65,29 @@ public class ForButton1 extends Pol_Znachenia {
     public String For3(int level){
         String Name = "";
         switch (level){
-            case 1: Name = "";
+            case 1: Name = "Вы ищите деньги по дому";
                      break;
-            case 2: Name = "Вы помогате родителям за деньги";
+            case 2: Name = "Вы собираете долги с друзей";
                     break;
             case 3: Name = "Вы работаете промоутером";
                     break;
-            case 4: Name = "";
+            case 4: Name = "Вы работаете уборщиком";
                     break;
-            case 5: Name = "";
+            case 5: Name = "Вы работаете продавцом в магазине";
                     break;
-            case 6: Name = "";
+            case 6: Name = "Вы пошли работать по специальности";
                      break;
-            case 7: Name = "";
+            case 7: Name = "Вы становитесь ценным работником компании";
                     break;
-            case 8: Name = "";
+            case 8: Name = "Вы становитесь начальником отдела ";
                     break;
-            case 9: Name = "";
+            case 9: Name = "Вы становитесь директором компании";
                     break;
-            case 10: Name = "";
+            case 10: Name = "Вы становитесь главным владельцем компании";
                     break;
         }
         return Name;
     }
 }
+
+
