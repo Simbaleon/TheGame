@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public static boolean ForB1Win;
     private String ForClickB2String, ForClickB3String, time;
     public Button btn1, btn2, btn3;
+    private Drawable button3_off, button2_off;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,18 +46,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btn1 = (Button) findViewById(R.id.button1);
         btn1.setText("Заработок");
-        btn1.setBackgroundColor(Color.GREEN);
         btn2 = (Button) findViewById(R.id.button2);
-        btn2.setText("Откроется на уровне 2");
-        btn2.setBackgroundColor(Color.GRAY);
         btn3 = (Button) findViewById(R.id.button3);
-        btn3.setText("Откроется на уровне 5");
-        btn3.setBackgroundColor(Color.GRAY);
         LevelsView(level);
         CoinsView(Coins);
         runTimer();
         addListenerOnButton();
         Finish = true;
+        btn2.setText("Недоступно");
+        btn2.setClickable(false);
+        btn3.setText("Недоступно");
+        btn3.setClickable(false);
+
     }
 
     public void addListenerOnButton() {
@@ -254,21 +257,25 @@ public class MainActivity extends AppCompatActivity {
     void ForButton2(int level) {
         if (ClickB2 < 15 && level > 1 && !ClB2){
             ForClickB2String = Integer.toString(15 - ClickB2);
-            if (15 - ClickB2 == 1)
-                btn2.setText("Будет доступно через 1 ход");
-            else if (15 - ClickB2 < 5 && 15 - ClickB2 > 1)
-                btn2.setText("Будет доступно через " + ForClickB2String + " хода");
-            else btn2.setText("Будет доступно через " + ForClickB2String + " ходов");
-            btn2.setBackgroundColor(Color.GRAY);
+            btn2.setBackgroundResource(R.drawable.button2_off);
+            if (15 - ClickB2 == 1){
+                btn2.setText("Доступно через 1 ход");
+            btn2.setClickable(false);}
+            else if (15 - ClickB2 < 5 && 15 - ClickB2 > 1){
+                btn2.setText("Доступно через " + ForClickB2String + " хода");
+                btn2.setClickable(false);}
+            else {btn2.setText("Доступно через " + ForClickB2String + " ходов");
+                btn2.setClickable(false);}
             btn2.setClickable(false);
             }else if (level > 1) {
+            btn2.setBackgroundResource(R.drawable.button2_press);
             btn2.setText("Лотерея");
-            btn2.setBackgroundColor(Color.YELLOW);
+
             btn2.setClickable(true);
             if (ClickB2 == 15 && ClB2){
                 ClickB2 = 0;
-                btn2.setText("Будет доступно через 15 ходов");
-                btn2.setBackgroundColor(Color.GRAY);
+                btn2.setText("Доступно через 15 ходов");
+                btn2.setBackgroundResource(R.drawable.button2_off);
                 btn2.setClickable(false);
             }
         }
@@ -278,21 +285,26 @@ public class MainActivity extends AppCompatActivity {
     void ForButton3(int level) {
         if (ClickB3 < 30 && level > 4 && !ClB3){
             ForClickB3String = Integer.toString(30 - ClickB3);
-            if (30 - ClickB3 == 1)
+            if (30 - ClickB3 == 1){
                 btn3.setText("Будет доступно через 1 ход");
-            else if (30 - ClickB3 < 5 && 30 - ClickB3 > 1)
+                btn3.setClickable(false);
+            }
+            else if (30 - ClickB3 < 5 && 30 - ClickB3 > 1){
                 btn3.setText("Будет доступно через " + ForClickB3String + " хода");
-            else btn3.setText("Будет доступно через " + ForClickB3String + " ходов");
+                btn3.setClickable(false);
+            }
+            else {
+                btn3.setText("Будет доступно через " + ForClickB3String + " ходов");
+                btn3.setClickable(false);
+            }
             btn3.setBackgroundColor(Color.GRAY);
             btn3.setClickable(false);
         }else if (level > 4) {
             btn3.setText("Всё или ничего");
-            btn3.setBackgroundColor(Color.RED);
             btn3.setClickable(true);
             if (ClickB3 == 30 && ClB3){
                 ClickB3 = 0;
                 btn3.setText("Будет доступно через 30 ходов");
-                btn3.setBackgroundColor(Color.GRAY);
                 btn3.setClickable(false);
             }
         }
@@ -360,5 +372,14 @@ public class MainActivity extends AppCompatActivity {
         alert.setCancelable(false);
         alert.show();
         Finish = false;
+    }
+    @Override
+    public void onBackPressed(){
+        try{
+            Intent intent = new Intent (MainActivity.this, Menu.class);
+            startActivity(intent); finish();
+        }catch(Exception e){
+
+        }
     }
 }

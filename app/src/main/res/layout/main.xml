@@ -5,6 +5,12 @@
 
 
 
+    <ImageView
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/menu" />
 
     <LinearLayout
         android:id="@+id/start"
@@ -19,12 +25,18 @@
             android:id="@+id/button_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_start"
+            android:background="@drawable/new_button_start"
             android:layout_weight="1"
+            android:textAllCaps="false"
             android:text="@string/start"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textColor="@color/white"
-            android:textSize = "24sp"/>
+            android:paddingLeft="22dp"
+            android:paddingRight="22dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/Red"
+            android:textStyle="italic"
+            android:textSize = "28sp"/>
     </LinearLayout>
+
+
 </RelativeLayout>
