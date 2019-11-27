@@ -41,14 +41,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_marginTop="0dp"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="67dp"
+            android:baselineAligned="false"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -56,12 +57,12 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:text="Be rich"
                 android:gravity="center"
+                android:text="Get rich"
+                android:textAllCaps="false"
                 android:textColor="@color/Red"
-                android:textStyle="italic"
-                android:textSize = "80sp"/>
+                android:textSize="80sp"
+                android:textStyle="italic" />
 
         </LinearLayout>
 
@@ -69,24 +70,24 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginBottom="40dp"
+            android:gravity="center"
             android:orientation="vertical"
             android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:gravity="center">
+            android:paddingRight="5dp">
 
             <TextView
                 android:id="@+id/textView5"
-                android:background="@drawable/menu_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textAllCaps="false"
-                android:text="@string/Begin"
+                android:background="@drawable/menu_text"
                 android:gravity="center"
-                android:textColor="@color/Red"
-                android:textStyle="italic"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:textSize = "20sp"/>
+                android:text="@string/Begin"
+                android:textAllCaps="false"
+                android:textColor="@color/Red"
+                android:textSize="20sp"
+                android:textStyle="italic" />
 
         </LinearLayout>
 

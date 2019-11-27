@@ -5,19 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 
 
-public class MainActivity extends AppCompatActivity {
-  
+public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+    MediaPlayer mPlayer;
+    Switch switch1;
     public static int Coins;
     public static int level = 1;
     private int seconds;
@@ -44,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         btn1.setText("Заработок");
         btn2 = (Button) findViewById(R.id.button2);
         btn3 = (Button) findViewById(R.id.button3);
+        switch1 = (Switch) findViewById(R.id.switch1);
+        switch1.setOnCheckedChangeListener(this);
         LevelsView(level);
         CoinsView(Coins);
         runTimer();
@@ -54,9 +59,19 @@ public class MainActivity extends AppCompatActivity {
         btn3.setText("Недоступно");
         btn3.setClickable(false);
 
+        mPlayer=MediaPlayer.create(this, R.raw.belikov_egor);
+        if (switch1 != null){
+            switch1.setOnCheckedChangeListener(this);
+        }
+
+
+
+
+
     }
 
     public void addListenerOnButton() {
+
 
         btn1.setOnClickListener(
                 new View.OnClickListener() {
@@ -360,7 +375,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void Fnsh(){
         AlertDialog.Builder finish = new AlertDialog.Builder(MainActivity.this);
-        finish.setTitle("                     Be rich");
+        finish.setTitle("                     Get rich");
         finish .setMessage("  Поздравляю!!! Вы достигли цели. " + '\n' +
                 "Ваше время: "  + time + '\n' +
                 "Всего кликов: " + Click + '\n' +
@@ -385,5 +400,15 @@ public class MainActivity extends AppCompatActivity {
         }catch(Exception e){
 
         }
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+      if (switch1.isChecked()){
+
+          mPlayer.start();
+
+        }else mPlayer.pause();
     }
 }
