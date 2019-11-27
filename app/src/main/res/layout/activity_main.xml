@@ -32,28 +32,43 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="200dp"
-                android:layout_marginTop="70dp"
-                android:orientation="vertical">
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="5dp"
+                android:orientation="vertical"
+                android:background="@drawable/style_btn_start_1">
+
 
                 <TextView
                     android:id="@+id/Level"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:text="Затраченное время: " />
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/white"
+                    android:textSize="17dp"
+                    android:text="Текущий уровень: " />
 
                 <TextView
                     android:id="@+id/Coins"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:text="Время" />
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/white"
+                    android:paddingTop="2dp"
+                    android:textSize="17dp"
+                    android:text="Money" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/container3"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -74,13 +89,12 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="0dp"
                         android:background="@drawable/button1"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
+                        android:padding="10dp"
                         android:text="Заработок"
                         android:textAllCaps="false"
                         android:textColor="@color/black95"
                         android:textStyle="italic"
-                        android:textSize="24dp" />
+                        android:textSize="37dp" />
 
                     <Button
                         android:id="@+id/button2"
@@ -90,12 +104,11 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
                         android:background="@drawable/button2_off"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
+                        android:padding="13dp"
                         android:textAllCaps="false"
                         android:textColor="@color/Btn2"
                         android:textStyle="italic"
-                        android:textSize="22dp" />
+                        android:textSize="35dp" />
 
                     <Button
                         android:id="@+id/button3"
@@ -105,12 +118,11 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
                         android:background="@drawable/button3_off"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
+                        android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="@color/Btn3"
                         android:textStyle="italic"
-                        android:textSize="24dp" />
+                        android:textSize="35dp" />
 
 
                 </LinearLayout>
@@ -121,15 +133,22 @@
                 android:id="@+id/Timer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="200dp"
-                android:layout_marginTop="50dp"
-                android:orientation="vertical">
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="70dp"
+                android:orientation="vertical"
+                android:background="@drawable/style_btn_start_1">
 
                 <TextView
                     android:id="@+id/MyTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Затраченное время: "
+                    android:paddingBottom="1dp"
+                    android:paddingTop="7dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textSize="17dp"
+                    android:textColor="@color/white"
                     android:gravity="right"/>
 
                 <TextView
@@ -137,6 +156,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/white"
+                    android:paddingBottom="7dp"
+                    android:paddingTop="1dp"
+                    android:textSize="17dp"
                     android:text="Время" />
             </LinearLayout>
 

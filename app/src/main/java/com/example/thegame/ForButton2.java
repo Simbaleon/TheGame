@@ -33,7 +33,7 @@ public class ForButton2 extends Pol_Znachenia {
     @Override
     public int For2(int Level) {
         Chance = 0;
-        switch (level) {
+        switch (Level) {
             case 2: Chance = 50 + (int)(Math.random() * 100);
                     break;
             case 3: Chance = 150 + (int)(Math.random() * 200);

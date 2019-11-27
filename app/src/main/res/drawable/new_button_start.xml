@@ -23,7 +23,7 @@
             <corners android:radius="10dip" />
             <stroke android:width="2dp" android:color="@color/Orange"/>
             <corners android:radius="20dp"/>
-            <gradient android:angle="180" android:startColor="#ffe6ad" android:endColor="#ffd77a" />
+            <gradient android:angle="270" android:startColor="#ffe6ad" android:endColor="#ffd77a" />
         </shape>
     </item>
 </selector>

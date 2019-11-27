@@ -3,9 +3,7 @@ package com.example.thegame;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,9 +17,7 @@ import android.content.DialogInterface;
 
 
 public class MainActivity extends AppCompatActivity {
-    AlertDialog.Builder D2, D3;
-    Context ForD2, ForD3;
-
+  
     public static int Coins;
     public static int level = 1;
     private int seconds;
@@ -39,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Coins = 90;
+        Coins = 10;
         ForB3Win = 0;
         ForB1Win = false;
         super.onCreate(savedInstanceState);
@@ -258,6 +254,7 @@ public class MainActivity extends AppCompatActivity {
         if (ClickB2 < 15 && level > 1 && !ClB2){
             ForClickB2String = Integer.toString(15 - ClickB2);
             btn2.setBackgroundResource(R.drawable.button2_off);
+            btn2.setTextSize(27);
             if (15 - ClickB2 == 1){
                 btn2.setText("Доступно через 1 ход");
             btn2.setClickable(false);}
@@ -269,6 +266,7 @@ public class MainActivity extends AppCompatActivity {
             btn2.setClickable(false);
             }else if (level > 1) {
             btn2.setBackgroundResource(R.drawable.button2_press);
+            btn2.setTextSize(35);
             btn2.setText("Лотерея");
 
             btn2.setClickable(true);
@@ -276,6 +274,7 @@ public class MainActivity extends AppCompatActivity {
                 ClickB2 = 0;
                 btn2.setText("Доступно через 15 ходов");
                 btn2.setBackgroundResource(R.drawable.button2_off);
+                btn2.setTextSize(27);
                 btn2.setClickable(false);
             }
         }
@@ -285,26 +284,31 @@ public class MainActivity extends AppCompatActivity {
     void ForButton3(int level) {
         if (ClickB3 < 30 && level > 4 && !ClB3){
             ForClickB3String = Integer.toString(30 - ClickB3);
+            btn3.setTextSize(27);
             if (30 - ClickB3 == 1){
-                btn3.setText("Будет доступно через 1 ход");
+                btn3.setText("Доступно через 1 ход");
                 btn3.setClickable(false);
             }
             else if (30 - ClickB3 < 5 && 30 - ClickB3 > 1){
-                btn3.setText("Будет доступно через " + ForClickB3String + " хода");
+                btn3.setText("Доступно через " + ForClickB3String + " хода");
                 btn3.setClickable(false);
             }
             else {
-                btn3.setText("Будет доступно через " + ForClickB3String + " ходов");
+                btn3.setText("Доступно через " + ForClickB3String + " ходов");
                 btn3.setClickable(false);
             }
-            btn3.setBackgroundColor(Color.GRAY);
+            btn3.setBackgroundResource(R.drawable.button3_off);
             btn3.setClickable(false);
-        }else if (level > 4) {
+        }else if (level > 4 && ClickB3 == 30) {
             btn3.setText("Всё или ничего");
+            btn3.setBackgroundResource(R.drawable.button3_press);
+            btn3.setTextSize(35);
             btn3.setClickable(true);
             if (ClickB3 == 30 && ClB3){
                 ClickB3 = 0;
-                btn3.setText("Будет доступно через 30 ходов");
+                btn3.setText("Доступно через 30 ходов");
+                btn3.setTextSize(27);
+                btn3.setBackgroundResource(R.drawable.button3_off);
                 btn3.setClickable(false);
             }
         }
@@ -356,13 +360,13 @@ public class MainActivity extends AppCompatActivity {
     }
     private void Fnsh(){
         AlertDialog.Builder finish = new AlertDialog.Builder(MainActivity.this);
-        finish.setTitle("     Be rich     ");
-        finish .setMessage("Поздравляю!!! Вы достигли цели. " + '\n' +
+        finish.setTitle("                     Be rich");
+        finish .setMessage("  Поздравляю!!! Вы достигли цели. " + '\n' +
                 "Ваше время: "  + time + '\n' +
                 "Всего кликов: " + Click + '\n' +
                 "Сыграно в лотерею: " + ForB2 + '\n' +
                 "Сыграно в \"Всё или ничего\": " + ForB3 + " (Выиграно: " + ForB3Win + ")" + '\n' +
-                "Теперь вы можете продолжить игру без достижения уровней.");
+                "   Теперь вы можете продолжить игру без достижения уровней.");
         finish.setNegativeButton("Продолжить", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();

@@ -9,25 +9,25 @@ public class ForButton1 extends Pol_Znachenia {
     @Override
     public int For1(int Level) {
         switch (Level) {
-            case 1: Znach = 10;
+            case 1: Znach = 1;
                 break;
-            case 2: Znach = 20;
+            case 2: Znach = 2;
                 break;
-            case 3: Znach = 40;
+            case 3: Znach = 4;
                 break;
-            case 4: Znach = 100;
+            case 4: Znach = 10;
                 break;
-            case 5: Znach = 250;
+            case 5: Znach = 25;
                 break;
-            case 6: Znach = 500;
+            case 6: Znach = 50;
                 break;
-            case 7: Znach = 1000;
+            case 7: Znach = 100;
                 break;
-            case 8: Znach = 1500;
+            case 8: Znach = 150;
                 break;
-            case 9: Znach = 2500;
+            case 9: Znach = 250;
                 break;
-            case 10: Znach = 5000;
+            case 10: Znach = 500;
                 break;
         }
         return Znach;
@@ -67,7 +67,7 @@ public class ForButton1 extends Pol_Znachenia {
         switch (level){
             case 1: Name = "Вы ищите деньги по дому";
                      break;
-            case 2: Name = "Вы собираете долги с друзей";
+            case 2: Name = "Вы ищите тайники";
                     break;
             case 3: Name = "Вы работаете промоутером";
                     break;
