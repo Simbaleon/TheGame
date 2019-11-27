@@ -1,8 +1,6 @@
 package com.example.thegame;
 
-import static com.example.thegame.MainActivity.Coins;
-
-public class ForButton3 extends Pol_Znachenia {
+public class ForButton3 extends Get_value {
 
     public int For1(int Level){
         Chance = 0;

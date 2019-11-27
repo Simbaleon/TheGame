@@ -1,6 +1,6 @@
 package com.example.thegame;
 
-public class Levels extends GetLevel implements Prov {
+public class Levels extends GetLevel implements ForButtons {
     public int LvLB1, LvLB2;
     public int Clicks, PlCoins;
 

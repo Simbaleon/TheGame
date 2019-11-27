@@ -4,7 +4,6 @@ public class Button1 extends MainActivity implements Buttons {
 
 
     private Levels lvl = new Levels();
-    private String Name;
 
     @Override
     public int Task1(int Coins) {
@@ -24,8 +23,8 @@ public class Button1 extends MainActivity implements Buttons {
     @Override
     public String Task3(int Level) {
         ForButton1 FB1 = new ForButton1();
-        Name = FB1.For3(level);
-        return Name;
+        String name = FB1.For3(level);
+        return name;
     }
 
 }

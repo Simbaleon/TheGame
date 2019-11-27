@@ -1,6 +1,6 @@
 package com.example.thegame;
 
-public class ForButton2 extends Pol_Znachenia {
+public class ForButton2 extends Get_value {
     static int Znach = 0;
 
     @Override

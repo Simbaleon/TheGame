@@ -1,6 +1,6 @@
 package com.example.thegame;
 
-public class ForButton1 extends Pol_Znachenia {
+public class ForButton1 extends Get_value {
 
     public static int Znach;
     private double Chance;
@@ -36,25 +36,25 @@ public class ForButton1 extends Pol_Znachenia {
     @Override
     public int For2(int Level) {
         Chance = 0;
-        Chance = Math.random() * 600;
+        Chance = Math.random() * 1000;
         ChanceInt = (int)Chance;
         switch (Level){
             case 4: ChanceInt += 1;
             break;
             case 5: ChanceInt += 2;
             break;
-            case 6: ChanceInt += 3;
+            case 6: ChanceInt += 5;
             break;
-            case 7: ChanceInt += 5;
+            case 7: ChanceInt += 7;
             break;
-            case 8: ChanceInt += 7;
+            case 8: ChanceInt += 10;
             break;
-            case 9: ChanceInt += 10;
+            case 9: ChanceInt += 15;
             break;
-            case 10: ChanceInt +=15;
+            case 10: ChanceInt += 20;
             break;
         }
-        if (ChanceInt > 400) {
+        if (ChanceInt > 920) {
             ForB1Win = true;
             return 2 * Znach;
         }else {

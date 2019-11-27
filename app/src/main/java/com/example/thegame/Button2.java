@@ -1,7 +1,7 @@
 package com.example.thegame;
 
 import android.graphics.Color;
-import android.widget.Toast;
+
 
 public class Button2 extends MainActivity implements Buttons{
 
@@ -26,7 +26,7 @@ public class Button2 extends MainActivity implements Buttons{
     @Override
     public String Task3(int Level) {
         btn2.setText("Откроется на уровне 2");
-        btn2.setBackgroundColor(Color.GRAY);
+        btn2.setBackgroundResource(R.drawable.button2_off);
         return Name;
     }
 

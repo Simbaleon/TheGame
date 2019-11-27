@@ -13,11 +13,13 @@ public class Button3 extends MainActivity implements Buttons{
 
     @Override
     public int Task2(int Level) {
+
         return 0;
     }
 
     @Override
     public String Task3(int Level) {
+
         return Name;
     }
 }

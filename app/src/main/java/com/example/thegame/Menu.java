@@ -47,6 +47,6 @@ public class Menu extends AppCompatActivity{
             backToast = Toast.makeText(getBaseContext(), "Нажмите еще раз, чтобы выйти", Toast.LENGTH_SHORT);
             backToast.show();
         }
-            backPressedTime  =System.currentTimeMillis();
+            backPressedTime = System.currentTimeMillis();
     }
 }

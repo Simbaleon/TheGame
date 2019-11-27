@@ -1,6 +1,6 @@
 package com.example.thegame;
 
- public abstract class Pol_Znachenia extends MainActivity {
+ public abstract class Get_value extends Levels {
     public int Znach;
     public static int Chance;
     String Name;
