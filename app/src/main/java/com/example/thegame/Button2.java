@@ -1,8 +1,5 @@
 package com.example.thegame;
 
-import android.graphics.Color;
-
-
 public class Button2 extends MainActivity implements Buttons{
 
     private Levels lvl = new Levels();

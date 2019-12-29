@@ -54,7 +54,7 @@ public class ForButton1 extends Get_value {
             case 10: ChanceInt += 20;
             break;
         }
-        if (ChanceInt > 920) {
+        if (ChanceInt > 950) {
             ForB1Win = true;
             return 2 * Znach;
         }else {

@@ -4,6 +4,7 @@ public class GetLevel extends MainActivity {
 
     private int lvl = 1;
     private static int Proverka = 1;
+    private boolean start = true;
 
 
     public int CheckLevel(int Coins) {
@@ -28,6 +29,10 @@ public class GetLevel extends MainActivity {
             lvl = 9;
         } else if (Coins >= 5000000){
             lvl = 10;
+        }
+        if(start){
+            start = false;
+            lvl = level;
         }
         if (Proverka < lvl) {
             NewLevel = true;
